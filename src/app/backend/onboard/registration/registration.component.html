@@ -1,0 +1,86 @@
+
+            <div class="text-center">
+                    <a href="" class="logo"><span>FAD<span>S</span></span></a> 
+                </div>
+                <div class="m-t-40 card-box">
+                    <div class="text-center">
+                        <h4 class="text-uppercase font-bold m-b-0">Register</h4>
+                    </div>
+                    <div class="p-20">
+    <form class="form-horizontal m-t-20" #registerfrm="ngForm" (ngSubmit)="onSubmit();" novalidate >
+        {{message}} 
+        {{error}}
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4" class="col-form-label">Email</label>
+                <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email" required=""  [(ngModel)]="register.email" #email="ngModel" [ngClass]= "{ 'is-invalid' : registerfrm.submitted && email.invalid }"  />
+                <div class="invalid-feedback">
+                    <div>Email is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputmobile" class="col-form-label">Mobile Number</label>
+                <input type="text" id="inputmobile" name="phoneno" class="form-control" placeholder="Mobile Number" required="" [(ngModel)]="register.phoneno" #phoneno="ngModel" [ngClass]= "{ 'is-invalid' : registerfrm.submitted && phoneno.invalid }" />
+                <div class="invalid-feedback">
+                    <div>Mobile Number is required</div>
+                </div>        
+            </div>
+        </div>
+     
+        <div class="form-row">
+            <div class="form-group col-md-6"> 
+                <label for="password" class="col-form-label">Password</label>
+                <input class="form-control"  name="password" type="password" required="" placeholder="Password" [(ngModel)]="register.password" #password="ngModel" [ngClass]= "{ 'is-invalid' : registerfrm.submitted && password.invalid }" minlength="10" />
+                <div class="invalid-feedback">
+                    <div>Password is required</div>
+                </div>
+            </div>
+    
+            <div class="form-group col-md-6"> 
+                <label for="confirm_password" class="col-form-label">Confirm Password</label>
+                <input class="form-control" type="password" name="confirm_password" required=""  placeholder="Confirm Password" [(ngModel)]="register.confirm_password" #confirm_password="ngModel" [ngClass]= "{ 'is-invalid' : registerfrm.submitted && confirm_password.invalid }" /> 
+                <div class="invalid-feedback">
+                    <div>Confirm Password is required</div>
+                </div>
+            </div>
+        </div>    
+          
+        <div class="form-group">
+            <div class="col-xs-12"> 
+                <label for="inputbusinessimage" class="col-form-label">Business Image</label>
+                <input class="dropify" name="businessimage" id="inputbusinessimage" type="file" required="" (change)="onFileChanged($event)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-12">
+                <div class="checkbox checkbox-custom">
+                    <input id="checkbox-signup" type="checkbox" checked="checked" required="">
+                    <label for="checkbox-signup">I accept <a href="#">Terms and Conditions</a></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group text-center m-t-40">
+            <div class="col-xs-12">
+                <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">
+                    Register
+                </button>
+
+                <!-- <button [disabled]='!registerfrm.valid' class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">
+                        Register
+                    </button> -->
+
+
+            </div>
+        </div>
+    </form>
+    
+                    </div>
+                </div>
+                <!-- end card-box -->
+    
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <p class="text-muted">Already have account? <a routerLink="/" class="text-primary m-l-5"><b>Sign In</b></a></p>
+        </div>
+    </div>
